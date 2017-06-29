@@ -1,1 +1,13 @@
-﻿
+﻿# Ignore les fichiers d'options utilisateur solution https://msdn.microsoft.com/fr-fr/library/bb165909.aspx
+*.suo
+
+# Ignore les fichiers d'options utilisateur projet https://msdn.microsoft.com/en-us/library/30xe1xzd.aspx
+*.csproj.user
+
+# Ignore les packages NuGet mais pas leurs liste
+/packages/*
+!packages/repositories.config
+
+# Ignore les dossiers bin et obj
+**/bin/
+**/obj/
