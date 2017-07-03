@@ -1,7 +1,8 @@
 ﻿<Window x:Class="ScreepsGUI.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="350" Width="800">
+        Title="MainWindow" Height="350" Width="800"
+        DataContext="{Binding MainWindowModelStatic, Source={StaticResource Locator}}">
     <Grid>
         <WrapPanel>
             <Border BorderThickness="1" BorderBrush="Black" Margin="5">
@@ -19,13 +20,15 @@
                     </Grid.RowDefinitions>
 
                     <TextBlock Grid.Row="0" Grid.Column="0" Margin="5" Text="email" />
-                    <TextBox Name="txtLogin" Grid.Row="0" Grid.Column="1" Margin="5"/>
+                    <TextBox Name="txtLogin" Grid.Row="0" Grid.Column="1" Margin="5" Text="{Binding Login}" />
 
                     <TextBlock Grid.Row="1" Grid.Column="0" Margin="5" Text="password" />
-                    <PasswordBox  Name="pwdPassword" Grid.Row="1" Grid.Column="1" Margin="5"/>
+                    <PasswordBox Name="pwdPassword" Grid.Row="1" Grid.Column="1" Margin="5" />
 
-                    <Button Name="btnConnect" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="5" Content="Connect" Click="btnConnect_Click" />
-                    <Button Name="btnDeconnect" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Margin="5" Content="Deconnect" Click="btnDeconnect_Click" />
+                    <Button Name="btnConnect" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="5" Content="Connect"
+                            Command="{Binding AuthenticateCommand}" CommandParameter="{Binding ElementName=pwdPassword}" />
+                    <Button Name="btnDeconnect" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Margin="5" Content="Disconnect"
+                            Command="{Binding DisconnectCommand}" />
                 </Grid>
             </Border>
 
@@ -45,19 +48,19 @@
                     </Grid.RowDefinitions>
 
                     <TextBlock Grid.Row="0" Grid.Column="0" Margin="5" Text="Token" />
-                    <TextBlock Name="txbToken" Grid.Row="0" Grid.Column="1" Margin="5"/>
+                    <TextBlock Name="txbToken" Grid.Row="0" Grid.Column="1" Margin="5" Text="{Binding Token}" />
 
-                    <TextBlock Grid.Row="1" Grid.Column="0" Margin="5" Text="Login" />
-                    <TextBlock Name="txbLogin" Grid.Row="1" Grid.Column="1" Margin="5"/>
+                    <TextBlock Grid.Row="1" Grid.Column="0" Margin="5" Text="Id" />
+                    <TextBlock Name="txbId" Grid.Row="1" Grid.Column="1" Margin="5" Text="{Binding AccountInformation.Id}" />
 
                     <TextBlock Grid.Row="2" Grid.Column="0" Margin="5" Text="Username" />
-                    <TextBlock Name="txbUsername" Grid.Row="2" Grid.Column="1" Margin="5"/>
+                    <TextBlock Name="txbUsername" Grid.Row="2" Grid.Column="1" Margin="5" Text="{Binding AccountInformation.Username}" />
 
                     <TextBlock Grid.Row="3" Grid.Column="0" Margin="5" Text="EMail" />
-                    <TextBlock Name="txbEmail" Grid.Row="3" Grid.Column="1" Margin="5"/>
+                    <TextBlock Name="txbEmail" Grid.Row="3" Grid.Column="1" Margin="5" Text="{Binding AccountInformation.Email}" />
 
                     <TextBlock Grid.Row="4" Grid.Column="0" Margin="5" Text="Steam display name" />
-                    <TextBlock Name="txbSteamDisplayName" Grid.Row="4" Grid.Column="1" Margin="5"/>
+                    <TextBlock Name="txbSteamDisplayName" Grid.Row="4" Grid.Column="1" Margin="5" Text="{Binding AccountInformation.SteamDisplayName}" />
                 </Grid>
             </Border>
         </WrapPanel>

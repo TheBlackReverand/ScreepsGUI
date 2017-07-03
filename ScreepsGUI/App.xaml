@@ -1,4 +1,12 @@
 ﻿<Application x:Class="ScreepsGUI.App"
+             
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             StartupUri="MainWindow.xaml" />
+  
+             xmlns:ScreepsGUI="clr-namespace:ScreepsGUI"
+             
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ScreepsGUI:ViewModelLocator x:Key="Locator" />
+    </Application.Resources>
+</Application>
