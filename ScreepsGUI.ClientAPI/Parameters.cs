@@ -13,12 +13,18 @@ namespace ScreepsGUI.ClientAPI
             static URLs()
             {
                 BaseURL = "https://screeps.com/api";
+
+
+                // https://screeps.com/ptr/api;
             }
 
             public static string BaseURL { get; set; }
 
-            public static string Auth_Signin { get { return BaseURL + "/auth/signin"; } }
-            public static string Auth_AboutMe { get { return BaseURL + "/auth/me"; } }
+            public static class Auth
+            {
+                public static string Signin { get { return BaseURL + "/auth/signin"; } }
+                public static string AboutMe { get { return BaseURL + "/auth/me"; } }
+            }
         }
     }
 }

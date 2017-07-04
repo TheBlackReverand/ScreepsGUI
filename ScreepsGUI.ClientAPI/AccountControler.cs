@@ -21,7 +21,7 @@ namespace ScreepsGUI.ClientAPI
 
             restParameters.Add(new RESTParameter(RESTParameterType.POST, JsonConvert.SerializeObject(body)));
 
-            RESTResponse restResponse = CallRESTService.CallService(Parameters.URLs.Auth_Signin, restParameters, CallModeServiceREST.POST);
+            RESTResponse restResponse = CallRESTService.CallService(Parameters.URLs.Auth.Signin, restParameters, CallModeServiceREST.POST);
 
             AuthenticationAnswer authenticationAnswer = new AuthenticationAnswer();
 
@@ -65,7 +65,7 @@ namespace ScreepsGUI.ClientAPI
             restParameters.Add(new RESTParameter(RESTParameterType.HEADER, "X-Token", Context.Token));
             restParameters.Add(new RESTParameter(RESTParameterType.HEADER, "X-Username", Context.Token));
 
-            RESTResponse restResponse = CallRESTService.CallService(Parameters.URLs.Auth_AboutMe, restParameters, CallModeServiceREST.GET);
+            RESTResponse restResponse = CallRESTService.CallService(Parameters.URLs.Auth.AboutMe, restParameters, CallModeServiceREST.GET);
 
             if (restResponse.Error != null)
             {
