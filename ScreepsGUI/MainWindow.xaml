@@ -63,6 +63,49 @@
                     <TextBlock Name="txbSteamDisplayName" Grid.Row="4" Grid.Column="1" Margin="5" Text="{Binding AccountInformation.SteamDisplayName}" />
                 </Grid>
             </Border>
+
+            <Border BorderThickness="1" BorderBrush="Black" Margin="5">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition Width="*" MinWidth="200" />
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" Grid.Column="0" Margin="5" Text="username" />
+                    <TextBox Name="txtUser_FindByUsername" Grid.Row="0" Grid.Column="1" Margin="5" Text="{Binding FindUserUsername}" />
+
+                    <Button Name="btnFindUser" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="5" Content="Find user"
+                            Command="{Binding FindUserCommand}"
+                            CommandParameter="{Binding ElementName=txtUser_FindByUsername}" />
+
+                    <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="5" DataContext="{Binding FindedUser}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto" />
+                            <ColumnDefinition Width="*" MinWidth="200" />
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Grid.Row="1" Grid.Column="0" Margin="5" Text="Id" />
+                        <TextBlock Name="txbFindUser_Id" Grid.Row="1" Grid.Column="1" Margin="5" Text="{Binding Id}" />
+
+                        <TextBlock Grid.Row="2" Grid.Column="0" Margin="5" Text="Username" />
+                        <TextBlock Name="txbFindUser_Username" Grid.Row="2" Grid.Column="1" Margin="5" Text="{Binding Username}" />
+                    </Grid>
+                </Grid>
+            </Border>
         </WrapPanel>
     </Grid>
 </Window>

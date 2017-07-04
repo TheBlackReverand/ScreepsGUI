@@ -25,6 +25,10 @@ namespace ScreepsGUI.ClientAPI
                 public static string Signin { get { return BaseURL + "/auth/signin"; } }
                 public static string AboutMe { get { return BaseURL + "/auth/me"; } }
             }
+            public static class User
+            {
+                public static string Find { get { return BaseURL + "/user/find?username={username}"; } }
+            }
         }
     }
 }
