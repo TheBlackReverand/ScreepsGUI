@@ -37,6 +37,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="PropertyChanged, Version=2.1.3.0, Culture=neutral, PublicKeyToken=ee3ee20bcf148ddd, processorArchitecture=MSIL">
       <HintPath>..\packages\PropertyChanged.Fody.2.1.3\lib\netstandard1.0\PropertyChanged.dll</HintPath>
       <Private>False</Private>
@@ -53,6 +54,7 @@
     <Compile Include="Json\Attributes\JsonPathAttribute.cs" />
     <Compile Include="Json\Converters\JsonPathConverter.cs" />
     <Compile Include="Json\ToolsJson.cs" />
+    <Compile Include="MVVM\DebugDummyConverter.cs" />
     <Compile Include="MVVM\RelayCommand.cs" />
     <Compile Include="MVVM\ViewModelBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
