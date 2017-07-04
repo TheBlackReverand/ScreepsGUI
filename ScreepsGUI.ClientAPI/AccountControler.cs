@@ -40,8 +40,10 @@ namespace ScreepsGUI.ClientAPI
                         break;
                 }
             }
-
-            authenticationAnswer.Success = restResponse.Body.Contains("token");
+            else
+            {
+                authenticationAnswer.Success = restResponse.Body.Contains("token");
+            }
 
             if (authenticationAnswer.Success)
             {
