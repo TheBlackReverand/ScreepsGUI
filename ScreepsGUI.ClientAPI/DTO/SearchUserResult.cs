@@ -1,9 +1,9 @@
-﻿namespace ScreepsGUI.DTO
+﻿namespace ScreepsGUI.ClientAPI.DTO
 {
     public class SearchUserResult
     {
         public bool Success;
 
-        public Account UserFound;
+        public UserAccount UserFound;
     }
 }

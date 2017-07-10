@@ -1,15 +1,13 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using ScreepsGUI.ClientAPI.DTO;
 using ScreepsGUI.DTO;
 using ScreepsGUI.DTO.Enum;
 using ScreepsGUI.Tools.REST;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace ScreepsGUI.ClientAPI
+namespace ScreepsGUI.ClientAPI.Controlers
 {
     public static class AccountControler
     {
@@ -42,14 +40,13 @@ namespace ScreepsGUI.ClientAPI
             }
             else
             {
-                authenticationAnswer.Success = restResponse.Body.Contains("token");
-            }
+                Tools.CheckBodyResponse(restResponse.Body);
 
-            if (authenticationAnswer.Success)
-            {
                 authenticationAnswer.Token = ((JObject)JsonConvert.DeserializeObject(restResponse.Body)).SelectToken("token").ToObject<string>();
 
                 Context.Token = authenticationAnswer.Token;
+
+                authenticationAnswer.Success = true;
             }
 
             return authenticationAnswer;
@@ -60,7 +57,7 @@ namespace ScreepsGUI.ClientAPI
             Context.Token = string.Empty;
         }
 
-        public static Account GeAccountInformation()
+        public static MyAccount GetMyAccount()
         {
             List<RESTParameter> restParameters = new List<RESTParameter>();
 
@@ -74,7 +71,9 @@ namespace ScreepsGUI.ClientAPI
                 throw new Exception();
             }
 
-            return JsonConvert.DeserializeObject<Account>(restResponse.Body);
+            Tools.CheckBodyResponse(restResponse.Body);
+
+            return JsonConvert.DeserializeObject<MyAccount>(restResponse.Body);
         }
     }
 }

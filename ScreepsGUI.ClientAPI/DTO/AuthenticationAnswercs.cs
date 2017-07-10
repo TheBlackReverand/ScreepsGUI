@@ -1,6 +1,6 @@
 ﻿using ScreepsGUI.DTO.Enum;
 
-namespace ScreepsGUI.DTO
+namespace ScreepsGUI.ClientAPI.DTO
 {
     public class AuthenticationAnswer
     {

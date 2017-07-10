@@ -44,16 +44,26 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context.cs" />
+    <Compile Include="Controlers\GameControler.cs" />
+    <Compile Include="DTO\OwnerAccount.cs" />
+    <Compile Include="DTO\UserAccount.cs" />
+    <Compile Include="DTO\BaseAccount.cs" />
+    <Compile Include="DTO\Badge.cs" />
+    <Compile Include="DTO\MyAccount.cs" />
+    <Compile Include="DTO\AuthenticationAnswercs.cs" />
+    <Compile Include="DTO\RoomOverview.cs" />
+    <Compile Include="DTO\SearchUserResult.cs" />
+    <Compile Include="Enum\AuthenticationErrorType.cs" />
+    <Compile Include="Enum\Interval.cs" />
+    <Compile Include="Enum\StatName.cs" />
+    <Compile Include="Exceptions\BadResponseException.cs" />
     <Compile Include="Parameters.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="AccountControler.cs" />
-    <Compile Include="UserControler.cs" />
+    <Compile Include="Controlers\AccountControler.cs" />
+    <Compile Include="Tools.cs" />
+    <Compile Include="Controlers\UserControler.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ScreepsGUI.DTO\ScreepsGUI.DTO.csproj">
-      <Project>{a92a25de-9fbc-4f8c-aaa4-94827c854474}</Project>
-      <Name>ScreepsGUI.DTO</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ScreepsGUI.Tools\ScreepsGUI.Tools.csproj">
       <Project>{a9eaf307-abb2-458e-ad72-b7e72ae76c1b}</Project>
       <Name>ScreepsGUI.Tools</Name>

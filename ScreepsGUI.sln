@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScreepsGUI.ClientAPI", "Scr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScreepsGUI.Tools", "ScreepsGUI.Tools\ScreepsGUI.Tools.csproj", "{A9EAF307-ABB2-458E-AD72-B7E72AE76C1B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScreepsGUI.DTO", "ScreepsGUI.DTO\ScreepsGUI.DTO.csproj", "{A92A25DE-9FBC-4F8C-AAA4-94827C854474}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,10 +27,6 @@ Global
 		{A9EAF307-ABB2-458E-AD72-B7E72AE76C1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A9EAF307-ABB2-458E-AD72-B7E72AE76C1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A9EAF307-ABB2-458E-AD72-B7E72AE76C1B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A92A25DE-9FBC-4F8C-AAA4-94827C854474}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A92A25DE-9FBC-4F8C-AAA4-94827C854474}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A92A25DE-9FBC-4F8C-AAA4-94827C854474}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A92A25DE-9FBC-4F8C-AAA4-94827C854474}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
