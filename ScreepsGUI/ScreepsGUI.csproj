@@ -90,10 +90,6 @@
       <Project>{83ebb8c2-fc0f-4214-b2cf-b18adc3dd093}</Project>
       <Name>ScreepsGUI.ClientAPI</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ScreepsGUI.DTO\ScreepsGUI.DTO.csproj">
-      <Project>{a92a25de-9fbc-4f8c-aaa4-94827c854474}</Project>
-      <Name>ScreepsGUI.DTO</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ScreepsGUI.Tools\ScreepsGUI.Tools.csproj">
       <Project>{a9eaf307-abb2-458e-ad72-b7e72ae76c1b}</Project>
       <Name>ScreepsGUI.Tools</Name>

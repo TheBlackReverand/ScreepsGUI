@@ -1,4 +1,6 @@
 ﻿using ScreepsGUI.ClientAPI;
+using ScreepsGUI.ClientAPI.Controlers;
+using ScreepsGUI.ClientAPI.DTO;
 using ScreepsGUI.DTO;
 using ScreepsGUI.Tools.MVVM;
 using System;
@@ -19,13 +21,13 @@ namespace ScreepsGUI.ViewModel
         public string Token { get; set; }
         public string Login { get; set; }
 
-        public Account AccountInformation { get; private set; }
+        public MyAccount MyAccount { get; private set; }
 
         private bool IsLoggedIn { get { return !String.IsNullOrEmpty(Context.Token); } }
 
         public string FindUser_Username { get; set; }
         public string FindUserUsername { get; set; }
-        public Account FindedUser { get; private set; }
+        public UserAccount FindedUser { get; private set; }
 
         #endregion
 
@@ -64,7 +66,7 @@ namespace ScreepsGUI.ViewModel
 
             if (!String.IsNullOrEmpty(Context.Token))
             {
-                AccountInformation = AccountControler.GeAccountInformation();
+                MyAccount = AccountControler.GetMyAccount();
             }
             else
             {
@@ -101,7 +103,7 @@ namespace ScreepsGUI.ViewModel
 
             Token = string.Empty;
 
-            AccountInformation = null;
+            MyAccount = null;
 
             Login = string.Empty;
         }

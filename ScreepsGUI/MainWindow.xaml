@@ -51,16 +51,16 @@
                     <TextBlock Name="txbToken" Grid.Row="0" Grid.Column="1" Margin="5" Text="{Binding Token}" />
 
                     <TextBlock Grid.Row="1" Grid.Column="0" Margin="5" Text="Id" />
-                    <TextBlock Name="txbId" Grid.Row="1" Grid.Column="1" Margin="5" Text="{Binding AccountInformation.Id}" />
+                    <TextBlock Name="txbId" Grid.Row="1" Grid.Column="1" Margin="5" Text="{Binding MyAccount.Id}" />
 
                     <TextBlock Grid.Row="2" Grid.Column="0" Margin="5" Text="Username" />
-                    <TextBlock Name="txbUsername" Grid.Row="2" Grid.Column="1" Margin="5" Text="{Binding AccountInformation.Username}" />
+                    <TextBlock Name="txbUsername" Grid.Row="2" Grid.Column="1" Margin="5" Text="{Binding MyAccount.Username}" />
 
                     <TextBlock Grid.Row="3" Grid.Column="0" Margin="5" Text="EMail" />
-                    <TextBlock Name="txbEmail" Grid.Row="3" Grid.Column="1" Margin="5" Text="{Binding AccountInformation.Email}" />
+                    <TextBlock Name="txbEmail" Grid.Row="3" Grid.Column="1" Margin="5" Text="{Binding MyAccount.Email}" />
 
                     <TextBlock Grid.Row="4" Grid.Column="0" Margin="5" Text="Steam display name" />
-                    <TextBlock Name="txbSteamDisplayName" Grid.Row="4" Grid.Column="1" Margin="5" Text="{Binding AccountInformation.SteamDisplayName}" />
+                    <TextBlock Name="txbSteamDisplayName" Grid.Row="4" Grid.Column="1" Margin="5" Text="{Binding MyAccount.SteamDisplayName}" />
                 </Grid>
             </Border>
 
