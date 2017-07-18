@@ -1,7 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using ScreepsGUI.ClientAPI.DTO;
-using ScreepsGUI.DTO;
 using ScreepsGUI.Tools.REST;
 using System.Collections.Generic;
 

@@ -1,7 +1,7 @@
 ﻿using ScreepsGUI.ClientAPI;
 using ScreepsGUI.ClientAPI.Controlers;
 using ScreepsGUI.ClientAPI.DTO;
-using ScreepsGUI.DTO;
+using ScreepsGUI.ClientAPI.DTO.Enum;
 using ScreepsGUI.Tools.MVVM;
 using System;
 using System.Collections.Generic;

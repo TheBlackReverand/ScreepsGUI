@@ -1,4 +1,4 @@
-﻿namespace ScreepsGUI.DTO.Enum
+﻿namespace ScreepsGUI.ClientAPI.DTO.Enum
 {
     public enum StatName
     {

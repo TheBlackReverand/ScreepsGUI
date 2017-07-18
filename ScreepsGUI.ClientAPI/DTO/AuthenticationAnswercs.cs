@@ -1,4 +1,4 @@
-﻿using ScreepsGUI.DTO.Enum;
+﻿using ScreepsGUI.ClientAPI.DTO.Enum;
 
 namespace ScreepsGUI.ClientAPI.DTO
 {

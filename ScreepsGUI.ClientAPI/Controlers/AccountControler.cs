@@ -1,8 +1,7 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using ScreepsGUI.ClientAPI.DTO;
-using ScreepsGUI.DTO;
-using ScreepsGUI.DTO.Enum;
+using ScreepsGUI.ClientAPI.DTO.Enum;
 using ScreepsGUI.Tools.REST;
 using System;
 using System.Collections.Generic;
