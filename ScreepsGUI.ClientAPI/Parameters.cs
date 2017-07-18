@@ -33,8 +33,8 @@ namespace ScreepsGUI.ClientAPI
             {
                 public static class Room
                 {
-                    public static string Overview { get { return BaseURL + "/room-overview?room={roomName}"; } }
-                    public static string OverviewWithInterval { get { return BaseURL + "/room-overview?room={roomName}&interval={interval}"; } }
+                    public static string Overview { get { return BaseURL + "/game/room-overview?room={roomName}"; } }
+                    public static string OverviewWithInterval { get { return BaseURL + "/game/room-overview?room={roomName}&interval={interval}"; } }
                 }
             }
         }
