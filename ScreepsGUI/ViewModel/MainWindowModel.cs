@@ -5,17 +5,32 @@ using ScreepsGUI.ClientAPI.DTO.Enum;
 using ScreepsGUI.Tools.MVVM;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Security;
-using System.Text;
-using System.Threading.Tasks;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Windows.Controls;
+using System.Windows.Data;
 using System.Windows.Input;
 
 namespace ScreepsGUI.ViewModel
 {
     public class MainWindowModel : ViewModelBase
     {
+        public MainWindowModel()
+        {
+            #region Liste Interval
+
+            Intervals = new ObservableCollection<Interval>((IEnumerable<Interval>)Enum.GetValues(typeof(Interval)));
+
+            IntervalsCollectionView = CollectionViewSource.GetDefaultView(Intervals);
+
+            if (IntervalsCollectionView == null)
+                throw new NullReferenceException("'IntervalsCollectionView' is null in Constructor");
+
+            IntervalsCollectionView.CurrentChanged += OnIntervalsCollectionViewCurrentChanged;
+
+            #endregion Liste Interval
+        }
+
         #region Properties
 
         public string Token { get; set; }
@@ -28,7 +43,37 @@ namespace ScreepsGUI.ViewModel
         public string FindUserUsername { get; set; }
         public UserAccount FindedUser { get; private set; }
 
+        public string RoomName { get; set; }
+        public RoomOverview RoomOverview { get; private set; }
+
         #endregion
+
+        #region Liste Interval
+
+        public ObservableCollection<Interval> Intervals { get; private set; }
+
+        private readonly ICollectionView IntervalsCollectionView;
+        public Interval CurrentInterval
+        {
+            get
+            {
+                if (IntervalsCollectionView.CurrentItem == null)
+                {
+                    return Interval.None;
+                }
+                else
+                {
+                    return (Interval)IntervalsCollectionView.CurrentItem;
+                }
+            }
+        }
+
+        private void OnIntervalsCollectionViewCurrentChanged(object sender, EventArgs e)
+        {
+            OnPropertyChanged("CurrentInterval");
+        }
+
+        #endregion Liste Interval
 
         #region Commands
 
@@ -143,6 +188,34 @@ namespace ScreepsGUI.ViewModel
         private bool CanFindUser()
         {
             return !String.IsNullOrEmpty(FindUserUsername);
+        }
+
+        #endregion
+
+        #region Command RoomOverview
+
+        private ICommand getRoomOverviewCommand;
+        public ICommand GetRoomOverviewCommand
+        {
+            get
+            {
+                if (getRoomOverviewCommand == null)
+                {
+                    getRoomOverviewCommand = new RelayCommand(GetRoomOverview, CanGetRoomOverview);
+                }
+
+                return getRoomOverviewCommand;
+            }
+        }
+
+        private void GetRoomOverview()
+        {
+            RoomOverview = GameControler.Room.GetRoomOverview(RoomName, CurrentInterval);
+        }
+
+        private bool CanGetRoomOverview()
+        {
+            return IsLoggedIn && !String.IsNullOrEmpty(RoomName);
         }
 
         #endregion

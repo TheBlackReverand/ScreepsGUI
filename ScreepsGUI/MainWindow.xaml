@@ -1,6 +1,10 @@
 ﻿<Window x:Class="ScreepsGUI.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        
+        xmlns:DTO="clr-namespace:ScreepsGUI.ClientAPI.DTO;assembly=ScreepsGUI.ClientAPI"
+        xmlns:Enum="clr-namespace:ScreepsGUI.ClientAPI.DTO.Enum;assembly=ScreepsGUI.ClientAPI"        
+
         Title="MainWindow" Height="350" Width="800"
         DataContext="{Binding MainWindowModelStatic, Source={StaticResource Locator}}">
     <Grid>
@@ -102,6 +106,66 @@
 
                         <TextBlock Grid.Row="2" Grid.Column="0" Margin="5" Text="Username" />
                         <TextBlock Name="txbFindUser_Username" Grid.Row="2" Grid.Column="1" Margin="5" Text="{Binding Username}" />
+                    </Grid>
+                </Grid>
+            </Border>
+
+            <Border BorderThickness="1" BorderBrush="Black" Margin="5">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition Width="*" MinWidth="200" />
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" Grid.Column="0" Margin="5" Text="Room name" />
+                    <TextBox Name="txtRoomName" Grid.Row="0" Grid.Column="1" Margin="5" Text="{Binding RoomName, UpdateSourceTrigger=PropertyChanged}" />
+
+                    <TextBlock Grid.Row="1" Grid.Column="0" Margin="5" Text="Interval" />
+                    <ComboBox Name="cmbInterval" Grid.Row="1" Grid.Column="1" Margin="5"
+                              ItemsSource="{Binding Intervals, Mode=OneWay}" IsSynchronizedWithCurrentItem="True" />
+
+                    <Button Name="btnRoomOverview" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="5" Content="Room overview"
+                            Command="{Binding GetRoomOverviewCommand}" />
+
+                    <Grid Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Margin="5" DataContext="{Binding RoomOverview}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto" />
+                            <ColumnDefinition Width="57*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Grid.Row="1" Grid.Column="0" Margin="5" Text="Owner Username" />
+                        <TextBlock Name="txbRoomOverview_Owner_Username" Grid.Row="1" Grid.Column="1" Margin="5" Text="{Binding Owner.Username}" />
+
+                        <TextBlock Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="5" Text="Stats" />
+                        <TreeView Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" ItemsSource="{Binding Stats}">
+                            <TreeView.ItemTemplate>
+                                <HierarchicalDataTemplate ItemsSource="{Binding Value}">
+                                    <StackPanel>
+                                        <TextBlock Text="{Binding Key}" />
+                                    </StackPanel>
+                                    <HierarchicalDataTemplate.ItemTemplate>
+                                        <DataTemplate DataType="{x:Type DTO:Stat}">
+                                            <TextBlock Text="{Binding .}" />
+                                        </DataTemplate>
+                                    </HierarchicalDataTemplate.ItemTemplate>
+                                </HierarchicalDataTemplate>
+                            </TreeView.ItemTemplate>
+                        </TreeView>
                     </Grid>
                 </Grid>
             </Border>
