@@ -25,7 +25,6 @@ namespace ScreepsGUI.ViewModel
 
         private bool IsLoggedIn { get { return !String.IsNullOrEmpty(Context.Token); } }
 
-        public string FindUser_Username { get; set; }
         public string FindUserUsername { get; set; }
         public UserAccount FindedUser { get; private set; }
 
@@ -124,28 +123,26 @@ namespace ScreepsGUI.ViewModel
             {
                 if (findUserCommand == null)
                 {
-                    findUserCommand = new RelayCommand<TextBox>(FindUser, CanFindUser);
+                    findUserCommand = new RelayCommand(FindUser, CanFindUser);
                 }
 
                 return findUserCommand;
             }
         }
 
-        private void FindUser(TextBox txtUser_FindByUsername)
+        private void FindUser()
         {
-            SearchUserResult searchUserResult = UserControler.SearchUser(txtUser_FindByUsername.Text);
+            SearchUserResult searchUserResult = UserControler.SearchUser(FindUserUsername);
 
             if (searchUserResult.Success && searchUserResult.UserFound != null)
             {
                 FindedUser = searchUserResult.UserFound;
-
-                FindUser_Username = string.Empty;
             }
         }
 
-        private bool CanFindUser(TextBox txtUser_FindByUsername)
+        private bool CanFindUser()
         {
-            return txtUser_FindByUsername != null && !String.IsNullOrEmpty(txtUser_FindByUsername.Text);
+            return !String.IsNullOrEmpty(FindUserUsername);
         }
 
         #endregion

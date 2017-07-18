@@ -20,7 +20,7 @@
                     </Grid.RowDefinitions>
 
                     <TextBlock Grid.Row="0" Grid.Column="0" Margin="5" Text="email" />
-                    <TextBox Name="txtLogin" Grid.Row="0" Grid.Column="1" Margin="5" Text="{Binding Login}" />
+                    <TextBox Name="txtLogin" Grid.Row="0" Grid.Column="1" Margin="5" Text="{Binding Login, UpdateSourceTrigger=PropertyChanged}" />
 
                     <TextBlock Grid.Row="1" Grid.Column="0" Margin="5" Text="password" />
                     <PasswordBox Name="pwdPassword" Grid.Row="1" Grid.Column="1" Margin="5" />
@@ -78,11 +78,10 @@
                     </Grid.RowDefinitions>
 
                     <TextBlock Grid.Row="0" Grid.Column="0" Margin="5" Text="username" />
-                    <TextBox Name="txtUser_FindByUsername" Grid.Row="0" Grid.Column="1" Margin="5" Text="{Binding FindUserUsername}" />
+                    <TextBox Name="txtUser_FindByUsername" Grid.Row="0" Grid.Column="1" Margin="5" Text="{Binding FindUserUsername, UpdateSourceTrigger=PropertyChanged}" />
 
                     <Button Name="btnFindUser" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="5" Content="Find user"
-                            Command="{Binding FindUserCommand}"
-                            CommandParameter="{Binding ElementName=txtUser_FindByUsername}" />
+                            Command="{Binding FindUserCommand}" />
 
                     <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="5" DataContext="{Binding FindedUser}">
                         <Grid.ColumnDefinitions>
