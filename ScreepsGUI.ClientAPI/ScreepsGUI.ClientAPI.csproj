@@ -46,6 +46,8 @@
     <Compile Include="Context.cs" />
     <Compile Include="Controlers\GameControler.cs" />
     <Compile Include="DTO\OwnerAccount.cs" />
+    <Compile Include="DTO\Stat.cs" />
+    <Compile Include="DTO\Stats.cs" />
     <Compile Include="DTO\UserAccount.cs" />
     <Compile Include="DTO\BaseAccount.cs" />
     <Compile Include="DTO\Badge.cs" />

@@ -11,5 +11,7 @@
         energyControl,
         energyCreeps,
         energyHarvested,
+
+        powerProcessed,
     }
 }
